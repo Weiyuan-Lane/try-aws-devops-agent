@@ -1,0 +1,8 @@
+devops_agent_aws_region = "ap-southeast-2"
+devops_agent_space_name = "Singapore space"
+
+devops_agent_space_tags = {
+  Environment = "production"
+  Owner       = "Your name here"
+  Team        = "Your team here"
+}

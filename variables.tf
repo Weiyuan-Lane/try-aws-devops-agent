@@ -1,0 +1,22 @@
+variable "devops_agent_aws_region" {
+  description = "AWS region for DevOps Agent deployment"
+  type        = string
+  default     = "us-east-1"
+}
+
+variable "devops_agent_space_name" {
+  description = "Name of the AWS DevOps Agent space"
+  type        = string
+  default     = "AgentSpace"
+}
+
+variable "devops_agent_space_tags" {
+  description = "Tags for the AWS DevOps Agent space"
+  type        = map(string)
+  default     = {
+    "Environment" = "Development"
+    "Team"        = "DevOps Team"
+    "Version"     = "0.0.1"
+  }
+}
+
