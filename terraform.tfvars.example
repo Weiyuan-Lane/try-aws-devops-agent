@@ -7,3 +7,9 @@ devops_agent_space_tags = {
   Owner       = "Your name here"
   Team        = "Your team here"
 }
+
+# Optional: test Lambda + Fargate sandbox for agent experiments
+# test_agent_name_prefix = "test-agent-serverless"
+# test_agent_tags = {
+#   Environment = "development"
+# }

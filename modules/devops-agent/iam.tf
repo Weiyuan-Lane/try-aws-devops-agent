@@ -48,7 +48,7 @@ data "aws_iam_policy_document" "devops_agent_space_trust" {
 resource "aws_iam_role" "devops_agent_space" {
   name               = "DevOpsAgentRole-AgentSpace-${local.devops_agent_space_name_slug}-${random_id.devops_agent_deployment_suffix.hex}"
   assume_role_policy = data.aws_iam_policy_document.devops_agent_space_trust.json
-  tags               = var.devops_agent_space_tags
+  tags               = local.common_tags
 }
 
 # Attach AIDevOpsAgentAccessPolicy managed policy to Agent Space role - Useful if no restricted access is needed
@@ -250,7 +250,7 @@ resource "aws_iam_policy" "devops_agent_space_access" {
   name        = "AIDevOpsAgentAccessPolicy-${random_id.devops_agent_deployment_suffix.hex}"
   description = "Singapore-scoped read access for AWS DevOps Agent (regional part 1)"
   policy      = data.aws_iam_policy_document.devops_agent_space_access.json
-  tags        = var.devops_agent_space_tags
+  tags        = local.common_tags
 }
 
 resource "aws_iam_role_policy_attachment" "devops_agent_space_access" {
@@ -264,7 +264,7 @@ resource "aws_iam_policy" "devops_agent_space_access_regional" {
   name        = "AIDevOpsAgentAccessPolicy-Regional${count.index + 2}-${random_id.devops_agent_deployment_suffix.hex}"
   description = "Singapore-scoped read access for AWS DevOps Agent (regional part ${count.index + 2})"
   policy      = data.aws_iam_policy_document.devops_agent_space_access_regional[count.index].json
-  tags        = var.devops_agent_space_tags
+  tags        = local.common_tags
 }
 
 resource "aws_iam_role_policy_attachment" "devops_agent_space_access_regional" {
@@ -277,7 +277,7 @@ resource "aws_iam_policy" "devops_agent_space_access_supplement" {
   name        = "AIDevOpsAgentAccessPolicy-Supplement-${random_id.devops_agent_deployment_suffix.hex}"
   description = "Global, S3, and API Gateway access for AWS DevOps Agent"
   policy      = data.aws_iam_policy_document.devops_agent_space_access_supplement.json
-  tags        = var.devops_agent_space_tags
+  tags        = local.common_tags
 }
 
 # Final inline policy for creating Resource Explorer service-linked role (within limit)
@@ -342,7 +342,7 @@ resource "aws_iam_role" "devops_agent_space_webapp_admin" {
   name               = "DevOpsAgentRole-WebappAdmin-${local.devops_agent_space_name_slug}-${random_id.devops_agent_deployment_suffix.hex}"
   assume_role_policy = data.aws_iam_policy_document.devops_agent_space_webapp_admin_trust.json
 
-  tags = var.devops_agent_space_tags
+  tags = local.common_tags
 }
 
 # Attach AIDevOpsOperatorAppAccessPolicy managed policy to WebApp Admin role

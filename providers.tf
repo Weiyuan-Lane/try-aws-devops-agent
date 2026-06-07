@@ -12,8 +12,8 @@ provider "awscc" {
 
 # Defaults - which could be in your code so you don't have to copy this
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-southeast-1"
 }
 provider "awscc" {
-  region = "us-east-1"
+  region = "ap-southeast-1"
 }

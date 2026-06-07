@@ -25,3 +25,15 @@ variable "devops_agent_space_tags" {
     "Version"     = "0.0.1"
   }
 }
+
+variable "test_agent_name_prefix" {
+  description = "Name prefix for test-agent-serverless-setup resources"
+  type        = string
+  default     = "test-agent-serverless"
+}
+
+variable "test_agent_tags" {
+  description = "Tags for test-agent-serverless-setup resources"
+  type        = map(string)
+  default     = {}
+}
