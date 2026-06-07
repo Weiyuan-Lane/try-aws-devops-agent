@@ -44,23 +44,3 @@ resource "aws_lambda_function_url" "endpoint" {
     allow_headers = ["*"]
   }
 }
-
-resource "aws_lambda_permission" "function_url_public" {
-  statement_id           = "FunctionURLAllowPublicAccess"
-  action                 = "lambda:InvokeFunctionUrl"
-  function_name          = aws_lambda_function.endpoint.function_name
-  principal              = "*"
-  function_url_auth_type = "NONE"
-
-  depends_on = [aws_lambda_function_url.endpoint]
-}
-
-resource "aws_lambda_permission" "function_url_invoke" {
-  statement_id             = "FunctionURLInvokeAllowPublicAccess"
-  action                   = "lambda:InvokeFunction"
-  function_name            = aws_lambda_function.endpoint.function_name
-  principal                = "*"
-  invoked_via_function_url = true
-
-  depends_on = [aws_lambda_function_url.endpoint]
-}

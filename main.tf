@@ -17,8 +17,4 @@ module "test_agent_serverless_setup" {
 
   name_prefix = var.test_agent_name_prefix
   tags        = var.test_agent_tags
-
-  providers = {
-    aws = aws.devops_agent_deployment
-  }
 }

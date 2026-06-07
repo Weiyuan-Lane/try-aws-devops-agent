@@ -18,10 +18,10 @@ resource "null_resource" "fargate_image" {
       set -euo pipefail
       REPO="${aws_ecr_repository.fargate_app.repository_url}"
       TAG="latest"
-      REGION="${data.aws_region.current.name}"
+      REGION="${data.aws_region.current.region}"
 
       aws ecr get-login-password --region "$REGION" | docker login --username AWS --password-stdin "${split("/", aws_ecr_repository.fargate_app.repository_url)[0]}"
-      docker build -t "$REPO:$TAG" "${path.module}/fargate-app"
+      docker build --platform linux/amd64 --provenance=false --sbom=false -t "$REPO:$TAG" "${path.module}/fargate-app"
       docker push "$REPO:$TAG"
     EOT
   }

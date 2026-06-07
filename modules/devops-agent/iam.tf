@@ -39,7 +39,7 @@ data "aws_iam_policy_document" "devops_agent_space_trust" {
     condition {
       test     = "ArnLike"
       variable = "aws:SourceArn"
-      values   = ["arn:aws:aidevops:${data.aws_region.devops_agent_deployment.name}:${data.aws_caller_identity.devops_agent_deployment.account_id}:agentspace/*"]
+      values   = ["arn:aws:aidevops:${data.aws_region.devops_agent_deployment.region}:${data.aws_caller_identity.devops_agent_deployment.account_id}:agentspace/*"]
     }
   }
 }
@@ -332,7 +332,7 @@ data "aws_iam_policy_document" "devops_agent_space_webapp_admin_trust" {
     condition {
       test     = "ArnLike"
       variable = "aws:SourceArn"
-      values   = ["arn:aws:aidevops:${data.aws_region.devops_agent_deployment.name}:${data.aws_caller_identity.devops_agent_deployment.account_id}:agentspace/*"]
+      values   = ["arn:aws:aidevops:${data.aws_region.devops_agent_deployment.region}:${data.aws_caller_identity.devops_agent_deployment.account_id}:agentspace/*"]
     }
   }
 }
