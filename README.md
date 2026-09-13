@@ -18,6 +18,7 @@ terraform version
 ### 2. Initialize the project
 
 ```bash
+git submodule update --init --recursive
 terraform init
 ```
 
@@ -47,6 +48,10 @@ terraform apply tfplan
 ```
 terraform output
 ```
+
+# Sample skills
+
+Apply uploads every skill from the [sample-skills-for-AWS-Devops-agent](https://github.com/aws-samples/sample-skills-for-AWS-Devops-agent) as a submodule. Remove if you don't need them!
 
 # Testing DevOps Agent (with fake incident)
 
