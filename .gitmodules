@@ -1,3 +1,3 @@
 [submodule "modules/devops-agent/sample-skills-for-AWS-Devops-agent"]
 	path = modules/devops-agent/sample-skills-for-AWS-Devops-agent
-	url = git@github.com:aws-samples/sample-skills-for-AWS-Devops-agent.git
+	url = git@github.com:Weiyuan-Lane/sample-skills-for-AWS-Devops-agent.git
